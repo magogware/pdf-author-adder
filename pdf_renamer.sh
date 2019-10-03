@@ -7,7 +7,8 @@ do
 	echo -n "Processing file $f... "
 
 	# Convert file name to a title
-	title=$(python3 file_to_title.py $f)
+	bare=$(basename --suffix=".pdf" $f)
+	title=$(echo $bare | tr _ ' ' | sed -e "s/\b\(.\)/\u\1/g")
 
 	# Write metadata to pdfmark file
 	echo "[ /Title ($title)" > docinfo.pdfmark
