@@ -5,7 +5,7 @@ date=$(date +%Y%m%d%H%M%S)
 
 # Check script is being used properly
 if [ "$#" < 3 ]; then
-	echo "Usage: pdf_renamer.sh authorname pdf(s)"
+	echo 'Usage: pdf_renamer.sh authorname pdf(s)'
 	exit 1
 fi
 
@@ -27,7 +27,7 @@ while (( "$#" )); do
 
 	# Write metadata to pdfmark file
 	echo "[ /Title ($title)" > docinfo.pdfmark
-	echo "  /Author ($1)" >> docinfo.pdfmark
+	echo "  /Author ($author)" >> docinfo.pdfmark
 	echo "  /Subject (PDF)" >> docinfo.pdfmark
 	echo "  /Creator (PDF Renamer)" >> docinfo.pdfmark
 	echo "  /ModDate (D:$date+10'00')" >> docinfo.pdfmark
